@@ -33,7 +33,7 @@ Recomend setting height and width inline or in CSS to avoid size changing when l
 #### Img srcset
 Use data-src-set and data-sizes the same way you would normally use srcset and sizes attributes. The data-sizes attribute is important to ensure the correct size image gets pre-loaded.
 
-Here data-src is just used as a backup in case srcset is unsupported.
+Here data-src will be added to src attribute which will only be used in the case of srcset not being supported (ie11 and older).
 
 ```html
 <img class="image lazyload"
@@ -66,14 +66,7 @@ Here data-src is just used as a backup in case srcset is unsupported.
 ## Methods
 In our above example
 ```javascript
-const iceCold = new ImageChill({
-  selector = ".lazyload",
-  loadedClass = "loaded",
-  src = "data-src",
-  srcSet = "data-src-set",
-  sizes = "data-sizes",
-  rootMargin = "0px",
-});
+const iceCold = new ImageChill();
 ```
 
 This just loads all the images whether they are in the viewport or not
