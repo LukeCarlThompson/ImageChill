@@ -1,0 +1,27 @@
+
+
+h1 {
+  color: rebeccapurple;
+}
+
+.image {
+  width: 100%;
+  // height: 80vh;
+  // object-fit: cover;
+  &--bg {
+    width: 100%;
+  height: 80vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.lazyload {
+  filter: blur(5px);
+  transition: filter 0.5s linear;
+  will-change: filter;
+  &.loaded {
+    filter: blur(0);
+  }
+}
