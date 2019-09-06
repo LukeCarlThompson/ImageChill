@@ -35,6 +35,8 @@ Use data-src-set and data-sizes the same way you would normally use srcset and s
 
 Here data-src will be added to src attribute which will only be used in the case of srcset not being supported (ie11 and older).
 
+Great reference for how to use srcset https://www.smashingmagazine.com/2014/05/responsive-images-done-right-guide-picture-srcset/
+
 ```html
 <img class="image lazyload"
     data-src-set="./img/high-res.jpg 1000w,
@@ -82,6 +84,10 @@ Why not go all the way 🥶💙
 ```javascript
 iceCold = null;
 ```
+
+## Fallbacks
+Image Chill uses intersection observer which is well supported except for ie11 and older.
+If intersection observer is not supported Image Chill just downloads all the images right away, just the same as regular loading. So at least your users still get images.
 
 
 ## Dev setup
