@@ -16,10 +16,12 @@
 .lazyload {
   &.blur-in {
     filter: blur(5px);
-    transition: filter 0.5s linear;
-    will-change: filter;
+    transform: scale(0.98);
+    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1), filter 0.5s linear;
+    will-change: filter, transform;
   }
   &.loaded {
+    transform: scale(1);
     filter: blur(0);
   }
 }
