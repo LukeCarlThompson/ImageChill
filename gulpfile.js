@@ -39,6 +39,13 @@ function copyHtml() {
     .pipe(copy(config.dev, { prefix: 1 }));
 }
 
+// Image copy
+function copyImages() {
+  return gulp
+  .src(config.src.folder + "img/**/*.*")
+  .pipe(copy(config.dev, { prefix: 1 }));
+}
+
 
 // SCSS processing
 function style() {
@@ -189,6 +196,6 @@ function server() {
 
 
 // Gulp tasks exported
-exports.dev = gulp.series(packageScripts, copyHtml, style, copyScripts, processDevScripts, server);
+exports.dev = gulp.series(packageScripts, copyHtml, copyImages, style, copyScripts, processDevScripts, server);
 exports.build = gulp.series(cleanDist, packageScripts);
 exports.clean = gulp.series(cleanDist, cleanDev);
