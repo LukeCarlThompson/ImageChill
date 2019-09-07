@@ -24,11 +24,14 @@ function ImageChill({
     const isImage = img.tagName.toLowerCase() === "img";
     if (isImage) {
       if (dataSrc && !dataSrcSet) {
-        const newImg = new Image();
+        let newImg = new Image();
         newImg.src = dataSrc;
         newImg.onload = () => {
           img.src = dataSrc;
           addLoadedClass(img);
+          // Allow garbage collection
+          newImg.onload = null;
+          newImg = null;
         };
       }
       if (dataSrcSet) {
@@ -40,21 +43,26 @@ function ImageChill({
           img.sizes = dataSizes;
           img.src = dataSrc;
           addLoadedClass(img);
-          // These next two lines remove reference to the image so it can be garbage collected. Otherwise the script can cause downloading of additional images on screen resizing due to srcset.
+          // Allow garbage collection
           newSrcSetImg.onload = null;
           newSrcSetImg = null;
         };
       }
     } else {
-      img.style.backgroundImage = `url(${dataSrc})`;
-      addLoadedClass(img);
+      let newBgImg = new Image();
+      newBgImg.src = dataSrc;
+      newBgImg.onload = () => {
+        img.style.backgroundImage = `url(${dataSrc})`;
+        addLoadedClass(img);
+        // Allow garbage collection
+        newBgImg.onload = null;
+        newBgImg = null;
+      };
     }
   };
 
   // Method to just load all the images right away
-  this.loadImages = () => {
-    this.images.forEach(image => loadImage(image));
-  };
+  this.loadImages = () => this.images.forEach(image => loadImage(image));
 
   // if no intersection observer then just load everything now and exit function
   if (!window.IntersectionObserver) {
