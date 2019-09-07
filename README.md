@@ -1,6 +1,6 @@
 # ImageChill.js ⛄️
 
-### A 1.2kb smart but lazy loader for responsive images
+### A > 1.5kb smart but lazy loader for responsive images
 
 ImageChill works by detecting when your images are near the screen and then loading the high quality file in the background. When that image has been loaded and cached by the browser it swaps the src, src-set or inline background image attribute.
 This way the swap is instant and jank free. The user never sees an image loading so you can just chill and not worry about a thing man.

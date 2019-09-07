@@ -18,9 +18,11 @@ h1 {
 }
 
 .lazyload {
-  filter: blur(5px);
-  transition: filter 0.5s linear;
-  will-change: filter;
+  &.blur-in {
+    filter: blur(5px);
+    transition: filter 0.5s linear;
+    will-change: filter;
+  }
   &.loaded {
     filter: blur(0);
   }

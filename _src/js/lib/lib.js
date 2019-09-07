@@ -18,36 +18,28 @@ function ImageChill({
 
   // function to load an image
   const loadImage = img => {
-    const dataSrc = img.getAttribute(src);
-    const dataSrcSet = img.getAttribute(srcSet);
+    const dataSrc = img.getAttribute(src) || "";
+    const dataSrcSet = img.getAttribute(srcSet) || "";
     const dataSizes = img.getAttribute(sizes) || "";
     const isImage = img.tagName.toLowerCase() === "img";
     if (isImage) {
-      if (dataSrc && !dataSrcSet) {
+      
+      if (dataSrc || dataSrcSet) {
         let newImg = new Image();
+        newImg.srcset = dataSrcSet;
+        newImg.sizes = dataSizes;
         newImg.src = dataSrc;
         newImg.onload = () => {
-          img.src = dataSrc;
+          dataSrcSet ? img.srcset = dataSrcSet : '';
+          dataSizes ? img.sizes = dataSizes : '';
+          dataSrcSet ? '' : img.src = dataSrc;
           addLoadedClass(img);
           // Allow garbage collection
           newImg.onload = null;
           newImg = null;
         };
       }
-      if (dataSrcSet) {
-        let newSrcSetImg = new Image();
-        newSrcSetImg.srcset = dataSrcSet;
-        newSrcSetImg.sizes = dataSizes;
-        newSrcSetImg.onload = () => {
-          img.srcset = dataSrcSet;
-          img.sizes = dataSizes;
-          img.src = dataSrc;
-          addLoadedClass(img);
-          // Allow garbage collection
-          newSrcSetImg.onload = null;
-          newSrcSetImg = null;
-        };
-      }
+
     } else {
       let newBgImg = new Image();
       newBgImg.src = dataSrc;
