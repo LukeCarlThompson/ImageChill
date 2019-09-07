@@ -16,7 +16,7 @@
 .lazyload {
   &.blur-in {
     filter: blur(5px);
-    transform: scale(0.98);
+    transform: scale(0.99);
     transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1), filter 0.5s linear;
     will-change: filter, transform;
   }
