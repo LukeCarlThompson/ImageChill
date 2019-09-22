@@ -78,6 +78,11 @@ This just loads all the images whether they are in the viewport or not
 iceCold.loadImages();
 ```
 
+Checks the document for any new images. Call this after adding images to the document dynamically.
+```javascript
+iceCold.refresh();
+```
+
 This removes intersection observer and removes images elements from memory
 ```javascript
 iceCold.melt();
