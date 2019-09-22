@@ -7,9 +7,15 @@ function ImageChill({
   rootMargin = "0px",
 } = {}) {
   // Let everyone know images are chillin
-  console.log("%c⛄", "text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4); font-size: 30px;");
+  // console.log("%c⛄", "text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4); font-size: 30px;");
 
-  this.images = document.querySelectorAll(selector);
+  this.updateImages = () => {
+    const images = Array.prototype.slice.call(document.querySelectorAll(`${selector}:not(.${loadedClass})`));
+    this.images = images;
+    return images;
+  };
+
+  this.updateImages();
 
   // Add loaded class
   const addLoadedClass = el => {
@@ -82,7 +88,10 @@ function ImageChill({
 
   this.images.forEach(image => observer.observe(image));
 
-  observer;
+  this.refresh = () => {
+    observer.disconnect();
+    this.updateImages().forEach(image => observer.observe(image));
+  };
 
   const kill = () => {
     observer.disconnect();
