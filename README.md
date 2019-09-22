@@ -26,12 +26,15 @@ const iceCold = new ImageChill({
 ```
 </br>
 
+## Examples
+
 #### Img tag
 Recomend setting height and width inline or in CSS to avoid size changing when larger image is added in.
 
 ```html
 <img class="image lazyload" data-src="./img/high-res.jpg" src="./img/low-res.jpg">
 ```
+</br>
 
 #### Img srcset
 Use data-src-set and data-sizes the same way you would normally use srcset and sizes attributes. The data-sizes attribute is important to ensure the correct size image gets pre-loaded.
@@ -50,12 +53,14 @@ Great reference for how to use srcset https://www.smashingmagazine.com/2014/05/r
     src="./img/low-res.jpg"
     >
 ```
+</br>
 
 #### Background image
 
 ```html
 <div class="image--bg lazyload" data-src="./img/high-res.jpg" style="background-image: url('./img/low-res.jpg')"></div>
 ```
+</br>
 
 #### Blur up/in effect CSS
 ```css
@@ -68,6 +73,7 @@ Great reference for how to use srcset https://www.smashingmagazine.com/2014/05/r
 }
 ```
 </br>
+
 
 ## Methods
 In our above example
