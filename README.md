@@ -24,6 +24,7 @@ const iceCold = new ImageChill({
   rootMargin = "0px",
 });
 ```
+</br>
 
 #### Img tag
 Recomend setting height and width inline or in CSS to avoid size changing when larger image is added in.
@@ -66,36 +67,38 @@ Great reference for how to use srcset https://www.smashingmagazine.com/2014/05/r
   filter: blur(0);
 }
 ```
+</br>
 
 ## Methods
 In our above example
 ```javascript
 const iceCold = new ImageChill();
 ```
+</br>
 
-This just loads all the images whether they are in the viewport or not
+Load all the images whether they are in the viewport or not.
 ```javascript
 iceCold.loadImages();
 ```
+</br>
 
 Checks the document for any new images. Call this after adding images to the document dynamically.
 ```javascript
 iceCold.refresh();
 ```
+</br>
 
-This removes intersection observer and removes images elements from memory
+Remove intersection observer and remove images elements from memory. 🥶💙
 ```javascript
 iceCold.melt();
 ```
-Why not go all the way 🥶💙
-```javascript
-iceCold = null;
-```
+</br>
 
 ## Fallbacks
 Image Chill uses intersection observer which is well supported except for ie11 and older.
 If intersection observer is not supported Image Chill just downloads all the images right away, just the same as regular loading. So at least your users still get images.
-
+</br>
+</br>
 
 ## Dev setup
 It uses gulp, scss, browserSync, Rollup and buble.
