@@ -32,7 +32,10 @@ const iceCold = new ImageChill({
 Recomend setting height and width inline or in CSS to avoid size changing when larger image is added in.
 
 ```html
-<img class="image lazyload" data-src="./img/high-res.jpg" src="./img/low-res.jpg">
+<img class="image lazyload"
+  data-src="./img/high-res.jpg"
+  src="./img/low-res.jpg"
+>
 ```
 </br>
 
@@ -45,20 +48,23 @@ Great reference for how to use srcset https://www.smashingmagazine.com/2014/05/r
 
 ```html
 <img class="image lazyload"
-    data-src-set="./img/high-res.jpg 1000w,
-    ./img/500px.jpg 500w,
-    ./img/low-res.jpg 100w"
-    data-sizes="100vw"
-    data-src="./img/high-res.jpg"
-    src="./img/low-res.jpg"
-    >
+  data-src-set="./img/high-res.jpg 1000w,
+  ./img/500px.jpg 500w,
+  ./img/low-res.jpg 100w"
+  data-sizes="100vw"
+  data-src="./img/high-res.jpg"
+  src="./img/low-res.jpg"
+>
 ```
 </br>
 
 #### Background image
 
 ```html
-<div class="image--bg lazyload" data-src="./img/high-res.jpg" style="background-image: url('./img/low-res.jpg')"></div>
+<div class="image--bg lazyload"
+  data-src="./img/high-res.jpg"
+  style="background-image: url('./img/low-res.jpg')"
+></div>
 ```
 </br>
 
