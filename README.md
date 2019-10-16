@@ -16,12 +16,12 @@ const iceCold = new ImageChill();
 
 ```javascript
 const iceCold = new ImageChill({
-  selector = ".lazyload",
-  loadedClass = "loaded",
-  src = "data-src",
-  srcSet = "data-src-set",
-  sizes = "data-sizes",
-  rootMargin = "0px",
+  selector: ".lazyload",
+  loadedClass: "loaded",
+  src: "data-src",
+  srcSet: "data-src-set",
+  sizes: "data-sizes",
+  rootMargin: "0px",
 });
 ```
 </br>
